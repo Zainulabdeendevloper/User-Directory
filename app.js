@@ -9,9 +9,10 @@ app.use(express.json()) ;
 app.use(express.urlencoded({extended : true })) ;
 app.use(express.static(path.join(__dirname , `public`)))
 
-app.get(`/` , (req , res) => {
-res.render("index")
-} ) ;
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "views", "index.html"));
+});
+
 
 app.get("/delete/:id", async (req, res) => {
   try {
